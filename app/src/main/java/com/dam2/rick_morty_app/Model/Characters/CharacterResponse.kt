@@ -2,7 +2,7 @@ package com.dam2.rick_morty_app.Model.Characters
 
 import com.google.gson.annotations.SerializedName
 
-data class Character(
+data class CharacterResponse(
     val id : Int,
     @SerializedName("name") val nombre : String,
     @SerializedName("status") val estado : String,

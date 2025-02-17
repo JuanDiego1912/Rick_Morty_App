@@ -10,3 +10,11 @@ fun getRetrofitEpisodesList() : Retrofit {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }
+
+fun getRetrofitCharacter() : Retrofit {
+    return Retrofit
+        .Builder()
+        .baseUrl("https://rickandmortyapi.com/api/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+}
