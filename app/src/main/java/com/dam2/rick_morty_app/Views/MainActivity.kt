@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dam2.rick_morty_app.Model.APIService
+import com.dam2.rick_morty_app.Model.Episodes.Episode
 import com.dam2.rick_morty_app.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var b : ActivityMainBinding
     private val episodes = mutableListOf<String>()
+    private var episodesResponse = mutableListOf<Episode>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,9 +56,10 @@ class MainActivity : AppCompatActivity() {
 
                 if (llamada.isSuccessful) {
 
-                    val listaEpisodios : List<String> = episodesAPI?.results?.map { it.episodio + " - " + it.nombreEpisodio } ?: emptyList()
+                    episodesResponse = (episodesAPI?.results ?: emptyList()).toMutableList()
 
-                    Toast.makeText(this@MainActivity, listaEpisodios[0], Toast.LENGTH_SHORT).show()
+                    val listaEpisodios : List<String> = episodesResponse.map { it.id.toString() + ". " + it.episodio + " - " + it.nombreEpisodio }
+
                     episodes.clear()
                     episodes.addAll(listaEpisodios)
                     initSpinner()

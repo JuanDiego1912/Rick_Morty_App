@@ -1,5 +1,6 @@
-package com.dam2.rick_morty_app.Model
+package com.dam2.rick_morty_app.Model.Episodes
 
+import com.dam2.rick_morty_app.Model.Info
 import com.google.gson.annotations.SerializedName
 
 data class EpisodesResponse(
