@@ -10,7 +10,7 @@ import com.dam2.rick_morty_app.R
 import com.dam2.rick_morty_app.databinding.ItemCharactersBinding
 import com.squareup.picasso.Picasso
 
-class CharacterAdapter(private val characters : List<CharacterResponse>/*, val fn : (CharacterResponse) -> Unit*/) : Adapter<CharacterAdapter.CharacterViewHolder>() {
+class CharactersOnEpisodeAdapter(private val characters : List<CharacterResponse>, val fn : (CharacterResponse) -> Unit = {}) : Adapter<CharactersOnEpisodeAdapter.CharacterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -35,6 +35,10 @@ class CharacterAdapter(private val characters : List<CharacterResponse>/*, val f
                 .get()
                 .load(personaje.imagen)
                 .into(b.imgvCharacter)
+
+            itemView.setOnClickListener {
+                fn(personaje)
+            }
         }
     }
 }

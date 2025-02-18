@@ -13,6 +13,7 @@ interface APIService {
     @GET("episode")
     suspend fun getEpisodes() : Response<EpisodesResponse>
 
+    //Obtener la informacion de un personaje por su ID
     @GET("character/{id}")
     suspend fun getCharacter(@Path("id") characterId: Int): CharacterResponse
 }

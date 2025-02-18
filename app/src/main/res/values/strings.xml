@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Rick_Morty_App</string>
+    <string name="get_me_back">Get me back!</string>
+    <string name="character_image">Character Image</string>
 </resources>
