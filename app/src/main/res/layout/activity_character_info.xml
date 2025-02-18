@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".Views.CharacterInfo">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgvCharacter"
         android:layout_width="220dp"
         android:layout_height="220dp"
@@ -18,28 +18,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.03"
-        tools:background="@drawable/circular_image" />
+        app:circularflow_defaultRadius="10dp"
+        android:background="@drawable/circle"
+        tools:background="@drawable/circle"/>
 
     <TextView
         android:id="@+id/tvCharacterName"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:textSize="20sp"
-        android:textColor="@color/black"
         android:textAlignment="center"
-        tools:text="Name:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgvCharacter"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.383"
+        tools:text="Name:" />
 
     <TextView
         android:id="@+id/tvCharacterStatus"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginBottom="260dp"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -47,15 +48,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCharacterName"
-        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.457"
         tools:text="Status:" />
 
     <TextView
         android:id="@+id/tvCharacterSpecies"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginBottom="296dp"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -63,15 +63,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCharacterStatus"
-        app:layout_constraintVertical_bias="0.818"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.539"
         tools:text="Species:" />
 
     <TextView
         android:id="@+id/tvCharacterType"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginBottom="196dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterGender"
+        app:layout_constraintVertical_bias="0.13"
+        tools:text="Type:" />
+
+    <TextView
+        android:id="@+id/tvCharacterGender"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -80,23 +94,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCharacterSpecies"
-        app:layout_constraintVertical_bias="0.384"
-        tools:text="Type:" />
-
-    <TextView
-        android:id="@+id/tvCharacterGender"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginBottom="32dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCharacterType"
-        app:layout_constraintVertical_bias="0.192"
+        app:layout_constraintVertical_bias="0.112"
         tools:text="Gender:" />
 
     <android.widget.Button
@@ -107,7 +105,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCharacterGender"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacterType"
+        app:layout_constraintVertical_bias="0.282" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

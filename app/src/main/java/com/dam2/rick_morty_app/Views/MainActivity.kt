@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dam2.rick_morty_app.Adapters.CharactersOnEpisodeAdapter
-import com.dam2.rick_morty_app.Model.APIService
+import com.dam2.rick_morty_app.Model.API.APIService
 import com.dam2.rick_morty_app.Model.Characters.CharacterResponse
 import com.dam2.rick_morty_app.Model.Episodes.Episode
 import com.dam2.rick_morty_app.databinding.ActivityMainBinding
