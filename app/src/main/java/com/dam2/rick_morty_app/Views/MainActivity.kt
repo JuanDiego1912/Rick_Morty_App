@@ -42,18 +42,15 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        characterAdapter = CharactersOnEpisodeAdapter(listOf())
-        b.rvCharacters.layoutManager = LinearLayoutManager(this)
-        b.rvCharacters.adapter = characterAdapter
-
         fetchEpisodesList()
     }
 
     private fun initRecyclerView() {
-        b.rvCharacters.layoutManager = LinearLayoutManager(this)
-        b.rvCharacters.adapter = CharactersOnEpisodeAdapter(characters) {
+        characterAdapter = CharactersOnEpisodeAdapter(characters) {
             onItemClickListener(it)
         }
+        b.rvCharacters.layoutManager = LinearLayoutManager(this)
+        b.rvCharacters.adapter = characterAdapter
     }
 
     private fun onItemClickListener(character : CharacterResponse) {
@@ -122,31 +119,43 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchEpisodesList() {
         CoroutineScope(Dispatchers.IO).launch {
-            val llamada = getRetrofitEpisodesList()
-                .create(APIService::class.java)
-                .getEpisodes()
+            val api = getRetrofitEpisodesList().create(APIService::class.java)
+            val allEpisodes = mutableListOf<Episode>()
+            var nextPage : String? = "1"
 
-            val episodesAPI = llamada.body()
+            while (nextPage != null) {
+                val llamada = api.getNextPage(nextPage.toInt())
+
+                if (llamada.isSuccessful) {
+                    val episodeResponse = llamada.body()
+                    episodeResponse?.let {
+                        allEpisodes.addAll(it.results)
+                        nextPage = it.info.paginaSiguiente?.substringAfter("page=")
+                    }
+                } else {
+                    Toast.makeText(this@MainActivity, "Error al obtener los episodios.", Toast.LENGTH_SHORT).show()
+                    break
+                }
+            }
 
             runOnUiThread {
-                if (llamada.isSuccessful) {
-                    episodesResponse.clear()
-                    episodesResponse = (episodesAPI?.results ?: emptyList()).toMutableList()
+                if (allEpisodes.isNotEmpty()) {
 
-                    val listaEpisodios : List<String> = episodesResponse.map {
-                        it.id.toString() + ". " + it.episodio + " - " + it.nombreEpisodio
-                    }
+                    episodesResponse.clear()
+                    episodesResponse.addAll(allEpisodes)
 
                     episodesInSpinner.clear()
-                    episodesInSpinner.addAll(listaEpisodios)
+                    episodesInSpinner.addAll(episodesResponse.map {
+                        it.id.toString() + ". " + it.episodio + " - " + it.nombreEpisodio
+                    })
 
                     initSpinner()
-
                     setCharacterByEpisodeID()
+
                 } else {
                     Toast.makeText(
                         this@MainActivity,
-                        "Error. La llamada a la API no ha ido bien al obtener los episodios",
+                        "Error al obtener los episodios",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

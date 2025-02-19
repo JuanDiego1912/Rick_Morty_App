@@ -5,6 +5,7 @@ import com.dam2.rick_morty_app.Model.Episodes.EpisodeResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface APIService {
 
@@ -16,6 +17,7 @@ interface APIService {
     @GET("character/{id}")
     suspend fun getCharacter(@Path("id") characterId: Int): CharacterResponse
 
-    @GET("?page={idPage}")
-    suspend fun getNextPage(@Path("idPage") pageNumber : Int) : Response<EpisodeResponse>
+    //Obtener las siguientes páginas
+    @GET("episode")
+    suspend fun getNextPage(@Query("page") pageNumber: Int): Response<EpisodeResponse>
 }
