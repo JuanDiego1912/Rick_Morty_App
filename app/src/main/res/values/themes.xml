@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.Rick_Morty_App" parent="Base.Theme.Rick_Morty_App" />
+    
+    <style name="etiqueta">
+        <item name="background">@drawable/background_eti_fab</item>
+        <item name="android:textColor">@color/gren_rick_and_morty</item>
+    </style>
 </resources>

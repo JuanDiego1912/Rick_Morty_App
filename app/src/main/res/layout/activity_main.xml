@@ -7,6 +7,60 @@
     android:layout_height="match_parent"
     tools:context=".Views.MainActivity">
 
+    <HorizontalScrollView
+        android:id="@+id/hzScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cgSeasons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/hzScrollView"
+            app:layout_constraintEnd_toEndOf="@+id/hzScrollView"
+            app:layout_constraintStart_toStartOf="@+id/hzScrollView"
+            app:layout_constraintBottom_toBottomOf="@+id/hzScrollView"
+            app:singleLine="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chSeason1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/season_1"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chSeason2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/season_2"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chSeason3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/season_3"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chSeason4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/season_4"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chSeason5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/season_5"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
+
     <Spinner
         android:id="@+id/spEpisodes"
         android:layout_width="match_parent"
@@ -15,8 +69,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
+        app:layout_constraintTop_toBottomOf="@+id/hzScrollView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCharacters"
@@ -27,17 +81,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/ChooseBckgColor"
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/btnFloatingActionMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:icon="@drawable/color_picket_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintHorizontal_bias="0.952"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.975"
+        app:fab_labelStyle="@style/etiqueta">
 
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabBackgroundColorPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/color_picker_icon"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/gren_rick_and_morty"
+            app:fab_title="Change background color" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

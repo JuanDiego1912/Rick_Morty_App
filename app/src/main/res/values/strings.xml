@@ -2,4 +2,10 @@
     <string name="app_name">Rick_Morty_App</string>
     <string name="get_me_back">Get me back!</string>
     <string name="character_image">Character Image</string>
+    <string name="background_color">Background color</string>
+    <string name="season_1">Season 1</string>
+    <string name="season_2">Season 2</string>
+    <string name="season_3">Season 3</string>
+    <string name="season_4">Season 4</string>
+    <string name="season_5">Season 5</string>
 </resources>

@@ -7,12 +7,14 @@
     android:layout_marginBottom="5dp"
     android:layout_marginStart="10dp"
     android:layout_marginEnd="10dp"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/blue_rick_and_morty">
 
         <ImageView
             android:id="@+id/imgvCharacter"
@@ -30,8 +32,9 @@
             android:id="@+id/tvCharacterName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textColor="@color/gren_rick_and_morty"
+            android:textSize="25sp"
+            android:fontFamily="@font/rick_and_mortys_font"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue_rick_and_morty">#0BBBD2</color>
+    <color name="gren_rick_and_morty">#39FF14</color>
 </resources>

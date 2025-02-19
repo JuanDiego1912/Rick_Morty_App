@@ -8,4 +8,5 @@ data class Episode(
     @SerializedName("episode") val episodio : String,
     @SerializedName("characters") val personajes : List<String>,
     @SerializedName("url") val urlEpisodio : String,
+    @SerializedName("created") val fechaCreacion : String
 )

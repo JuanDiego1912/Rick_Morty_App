@@ -78,6 +78,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     suspend fun fetchCharacters(characterUrls: List<String>) {
+
         val api = getRetrofitCharacter().create(APIService::class.java)
 
         val characterIds = characterUrls.map { url ->
