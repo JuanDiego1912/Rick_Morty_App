@@ -15,6 +15,7 @@ import com.dam2.rick_morty_app.Adapters.CharactersOnEpisodeAdapter
 import com.dam2.rick_morty_app.Model.API.APIService
 import com.dam2.rick_morty_app.Model.Characters.CharacterResponse
 import com.dam2.rick_morty_app.Model.Episodes.Episode
+import com.dam2.rick_morty_app.SpinnerInformationSetter.SpinnerInformation
 import com.dam2.rick_morty_app.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        characterAdapter = CharactersOnEpisodeAdapter(emptyList())
         fetchEpisodesList()
     }
 
@@ -53,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         b.rvCharacters.adapter = characterAdapter
     }
 
-    private fun onItemClickListener(character : CharacterResponse) {
+    fun onItemClickListener(character : CharacterResponse) {
         val intent = Intent(this, CharacterInfo::class.java)
         intent.putExtra("IMAGEURL", character.imagen)
         intent.putExtra("NAME", character.nombre)
@@ -119,6 +121,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchEpisodesList() {
         CoroutineScope(Dispatchers.IO).launch {
+
             val api = getRetrofitEpisodesList().create(APIService::class.java)
             val allEpisodes = mutableListOf<Episode>()
             var nextPage : String? = "1"
@@ -128,10 +131,12 @@ class MainActivity : AppCompatActivity() {
 
                 if (llamada.isSuccessful) {
                     val episodeResponse = llamada.body()
+
                     episodeResponse?.let {
                         allEpisodes.addAll(it.results)
-                        nextPage = it.info.paginaSiguiente?.substringAfter("page=")
+                        nextPage = it.info.paginaSiguiente?.substringAfter("page=") ?: null
                     }
+
                 } else {
                     Toast.makeText(this@MainActivity, "Error al obtener los episodios.", Toast.LENGTH_SHORT).show()
                     break
@@ -148,6 +153,15 @@ class MainActivity : AppCompatActivity() {
                     episodesInSpinner.addAll(episodesResponse.map {
                         it.id.toString() + ". " + it.episodio + " - " + it.nombreEpisodio
                     })
+
+                    val actualizarSpiner = SpinnerInformation(
+                        b.cgSeasons,
+                        b.spEpisodes,
+                        episodesResponse,
+                        this@MainActivity
+                    )
+
+                    actualizarSpiner.setListenerOnChips()
 
                     initSpinner()
                     setCharacterByEpisodeID()

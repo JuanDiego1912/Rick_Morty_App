@@ -15,6 +15,19 @@
         android:theme="@style/Theme.Rick_Morty_App"
         tools:targetApi="31">
         <activity
+            android:name=".Animations.StartAnimation"
+            android:hardwareAccelerated="true"
+            android:exported="true" >
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".Views.CharacterInfo"
             android:exported="false" />
         <activity
