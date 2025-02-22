@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             app:fab_icon="@drawable/color_picker_icon"
             app:fab_size="mini"
-            app:fab_colorNormal="@color/gren_rick_and_morty"
+            app:fab_colorNormal="@color/green_rick_and_morty"
             app:fab_title="Change background color" />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>

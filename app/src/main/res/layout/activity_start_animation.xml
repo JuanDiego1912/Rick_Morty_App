@@ -34,7 +34,7 @@
         android:shadowDy="0"
         android:shadowRadius="8"
         android:text="@string/rick_and_morty"
-        android:textColor="@color/gren_rick_and_morty"
+        android:textColor="@color/green_rick_and_morty"
         android:textSize="55sp"
         android:layout_marginTop="-200dp"
         app:layout_constraintTop_toTopOf="parent"

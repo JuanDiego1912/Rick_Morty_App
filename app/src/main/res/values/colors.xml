@@ -2,7 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="blue_rick_and_morty">#0BBBD2</color>
-    <color name="gren_rick_and_morty">#39FF14</color>
+    <color name="blue_rick_and_morty">#00FFFF</color>
+    <color name="green_rick_and_morty">#39FF14</color>
     <color name="animation_background_color">#39FF14</color>
+    <color name="azul_oscuro">#091540</color>
+    <color name="azul_neon_oscuro">#3D87E4</color>
+    <color name="azul_semiopaco">#009999</color>
+    <color name="blue">#00AAFF</color>
 </resources>

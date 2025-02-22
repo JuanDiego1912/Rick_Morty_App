@@ -20,25 +20,18 @@ class SpinnerInformation(val chipGroup : ChipGroup,
             chip.setOnClickListener {
 
                 val seasonEnum = Seasons.entries.find {
-                    println(it)
                     it.getSeason(context) == chip.text.toString()
                 }
 
                 seasonEnum?.let {
                     updateSpinnerContent(getItemsForSpinner(it))
-                    Toast.makeText(context, "${seasonEnum}", Toast.LENGTH_SHORT).show()
                 }
-
-
             }
         }
     }
 
     private fun getItemsForSpinner(season : Seasons) : List<Episode> {
-        val seasonText = context.getString(season.seasonResId)
-        println(seasonText)
-        println(episodesResponse.filter { it.episodio.contains(seasonText, ignoreCase = true) }.toString())
-        return episodesResponse.filter { it.episodio.contains(seasonText, ignoreCase = true) }
+        return episodesResponse.filter { it.episodio.contains(season.toString(), ignoreCase = true) }
     }
 
     private fun updateSpinnerContent(nuevosItems : List<Episode>) {

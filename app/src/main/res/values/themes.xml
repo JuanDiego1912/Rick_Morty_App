@@ -9,6 +9,16 @@
     
     <style name="etiqueta">
         <item name="background">@drawable/background_eti_fab</item>
-        <item name="android:textColor">@color/gren_rick_and_morty</item>
+        <item name="android:textColor">@color/green_rick_and_morty</item>
     </style>
+
+    <style name="TextoNeonAzul">
+        <item name="android:textColor">@color/blue_rick_and_morty</item>
+        <item name="android:shadowColor">@color/azul_semiopaco</item>
+        <item name="android:shadowRadius">12</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:fontFamily">@font/rick_and_mortys_font</item>
+    </style>
+
+
 </resources>

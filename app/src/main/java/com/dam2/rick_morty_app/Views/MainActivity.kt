@@ -162,7 +162,6 @@ class MainActivity : AppCompatActivity() {
                     )
 
                     actualizarSpiner.setListenerOnChips()
-
                     initSpinner()
                     setCharacterByEpisodeID()
 
