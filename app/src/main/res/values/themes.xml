@@ -20,5 +20,22 @@
         <item name="android:fontFamily">@font/rick_and_mortys_font</item>
     </style>
 
+    <style name="TextoNeonVerde">
+        <item name="android:textColor">@color/green_rick_and_morty</item>
+        <item name="android:shadowColor">@color/animation_background_color</item>
+        <item name="android:shadowRadius">12</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:fontFamily">@font/rick_and_mortys_font</item>
+    </style>
 
+    <style name="EstiloRecyclerView">
+        <item name="android:background">@color/azul_oscuro</item>
+    </style>
+
+    <style name="ChipStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/green_rick_and_morty</item>
+        <item name="android:fontFamily">@font/rick_and_morty_font</item>
+        <item name="android:backgroundTint">@color/black</item>
+    </style>
 </resources>

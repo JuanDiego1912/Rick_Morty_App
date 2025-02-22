@@ -3,8 +3,8 @@ package com.dam2.rick_morty_app.SpinnerInformationSetter
 import android.content.Context
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import android.widget.Toast
 import com.dam2.rick_morty_app.Model.Episodes.Episode
+import com.dam2.rick_morty_app.R
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
@@ -38,11 +38,12 @@ class SpinnerInformation(val chipGroup : ChipGroup,
 
         val adapter = ArrayAdapter(
             context,
-            android.R.layout.simple_dropdown_item_1line,
+            R.layout.spinner_selected_item,
             nuevosItems.map {
                 it.id.toString() + ". " + it.episodio + " - " + it.nombreEpisodio
             }
         )
+        adapter.setDropDownViewResource(R.layout.spinner_list_items)
 
         spinner.adapter = adapter
     }

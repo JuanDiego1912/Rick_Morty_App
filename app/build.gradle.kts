@@ -51,7 +51,6 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.circleimageview)
     implementation(libs.lottie)
-    implementation(libs.floatingactionbutton)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

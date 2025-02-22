@@ -15,6 +15,7 @@ import com.dam2.rick_morty_app.Adapters.CharactersOnEpisodeAdapter
 import com.dam2.rick_morty_app.Model.API.APIService
 import com.dam2.rick_morty_app.Model.Characters.CharacterResponse
 import com.dam2.rick_morty_app.Model.Episodes.Episode
+import com.dam2.rick_morty_app.R
 import com.dam2.rick_morty_app.SpinnerInformationSetter.SpinnerInformation
 import com.dam2.rick_morty_app.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
@@ -69,9 +70,10 @@ class MainActivity : AppCompatActivity() {
     private fun initSpinner() {
         val adapter = ArrayAdapter(
             this,
-            android.R.layout.simple_dropdown_item_1line,
+            R.layout.spinner_selected_item,
             episodesInSpinner
         )
+        adapter.setDropDownViewResource(R.layout.spinner_list_items)
 
         b.spEpisodes.adapter = adapter
     }
