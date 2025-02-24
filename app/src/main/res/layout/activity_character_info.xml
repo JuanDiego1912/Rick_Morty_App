@@ -96,7 +96,7 @@
 
     <android.widget.Button
         android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:textColor="@color/green_rick_and_morty"
         android:textStyle="bold"

@@ -11,4 +11,5 @@
     <color name="blue">#00AAFF</color>
     <color name="verde_semiopaco">#247F00</color>
     <color name="background_spinner">#343232</color>
+    <color name="blue_button_borders">#0F6382</color>
 </resources>

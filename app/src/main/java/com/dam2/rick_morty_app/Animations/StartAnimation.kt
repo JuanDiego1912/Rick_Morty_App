@@ -115,9 +115,8 @@ class StartAnimation : AppCompatActivity() {
             lottieAnimation.playAnimation()
         }
 
-        withContext(Dispatchers.IO) {
-            delay(6200)
-        }
+        delay(5500)
+
 
         withContext(Dispatchers.Main) {
             startActivity(Intent(this@StartAnimation, MainActivity::class.java))
