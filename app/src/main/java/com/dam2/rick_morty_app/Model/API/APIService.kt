@@ -9,10 +9,6 @@ import retrofit2.http.Query
 
 interface APIService {
 
-    //Obtener los episodios
-    @GET("episode")
-    suspend fun getEpisodes() : Response<EpisodeResponse>
-
     //Obtener la informacion de un personaje por su ID
     @GET("character/{id}")
     suspend fun getCharacter(@Path("id") characterId: Int): CharacterResponse

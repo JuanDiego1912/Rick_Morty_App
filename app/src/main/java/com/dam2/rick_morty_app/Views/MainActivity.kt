@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         b.rvCharacters.adapter = characterAdapter
     }
 
-    fun onItemClickListener(character : CharacterResponse) {
+    private fun onItemClickListener(character : CharacterResponse) {
         val intent = Intent(this, CharacterInfo::class.java)
         intent.putExtra("IMAGEURL", character.imagen)
         intent.putExtra("NAME", character.nombre)
@@ -140,7 +140,10 @@ class MainActivity : AppCompatActivity() {
                     }
 
                 } else {
-                    Toast.makeText(this@MainActivity, "Error al obtener los episodios.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Error al obtener los episodios.",
+                        Toast.LENGTH_SHORT).show()
                     break
                 }
             }

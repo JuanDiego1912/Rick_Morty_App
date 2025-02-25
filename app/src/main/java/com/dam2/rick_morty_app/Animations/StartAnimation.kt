@@ -2,7 +2,6 @@ package com.dam2.rick_morty_app.Animations
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.view.animation.BounceInterpolator
@@ -85,7 +84,7 @@ class StartAnimation : AppCompatActivity() {
                 duration = 1200
             }
 
-            val fadeOut = ObjectAnimator.ofFloat(
+            val desaparecerTexto = ObjectAnimator.ofFloat(
                 tvRickAndMorty,
                 "alpha",
                 1f, 0f
@@ -99,7 +98,7 @@ class StartAnimation : AppCompatActivity() {
                     animacionDeRebote,
                     escalaX,
                     escalaY,
-                    fadeOut
+                    desaparecerTexto
                 )
                 start()
             }
@@ -116,7 +115,6 @@ class StartAnimation : AppCompatActivity() {
         }
 
         delay(5500)
-
 
         withContext(Dispatchers.Main) {
             startActivity(Intent(this@StartAnimation, MainActivity::class.java))
