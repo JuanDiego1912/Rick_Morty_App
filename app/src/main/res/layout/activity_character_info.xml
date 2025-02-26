@@ -103,8 +103,6 @@
         android:textSize="25sp"
         android:paddingStart="8dp"
         android:shadowColor="#000000"
-        android:shadowDx="0"
-        android:shadowDy="0"
         android:shadowRadius="8"
         android:paddingEnd="8dp"
         android:background="@drawable/buttons_style"

@@ -1,12 +1,16 @@
 package com.dam2.rick_morty_app.Views
 
 import android.content.Intent
+import android.graphics.Point
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -46,6 +50,30 @@ class MainActivity : AppCompatActivity() {
 
         characterAdapter = CharactersOnEpisodeAdapter(emptyList())
         fetchEpisodesList()
+        posicionDelItem()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.R)
+    private fun posicionDelItem() {
+        val windowManager = windowManager
+        val display = this.display
+        val size = Point()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+
+            val windowMetrics = windowManager.currentWindowMetrics
+            size.x = windowMetrics.bounds.width()
+            size.y = windowMetrics.bounds.height()
+
+        } else {
+            display.getSize(size)
+        }
+
+        val ancho = size.x
+        val alto = size.y
+
+        Toast.makeText(
+            this, "Ancho: $ancho, Alto: $alto", Toast.LENGTH_SHORT).show()
     }
 
     private fun initRecyclerView() {
